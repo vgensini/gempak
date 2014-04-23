@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Gempak : Analysis, display, and product generation package for meteorological data." />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Gempak</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/Unidata/gempak">View on GitHub</a>
+
+          <h1 id="project_title">Gempak</h1>
+          <h2 id="project_tagline">Analysis, display, and product generation package for meteorological data.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/Unidata/gempak/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/Unidata/gempak/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="gempak" class="anchor" href="#gempak"><span class="octicon octicon-link"></span></a>GEMPAK</h1>
+
+<p>This document is intended to guide the user through the process of downloading, configuring and installing GEMPAK v7 for most common systems (32 and 64-bit Linux and Solaris). Specific instructions for <a href="http://www.unidata.ucar.edu/software/gempak/doc/install_osx.html">building on OS X</a> are available as well.</p>
+
+<p>Last Updated January 2014</p>
+
+<h2>
+<a name="download" class="anchor" href="#download"><span class="octicon octicon-link"></span></a>Download</h2>
+
+<p>GEMPAK can be installed by an individual user, and root / superuser permission is not required. It's assumed for this guide and throughout other online documentation that GEMPAK is installed for a gempak user account in the home directory.</p>
+
+<h3>
+<a name="from-github" class="anchor" href="#from-github"><span class="octicon octicon-link"></span></a>from GitHub</h3>
+
+<p>GEMPAK may be download from the <a href="https://github.com/Unidata/gempak">GitHub repository</a> in a zip file, or via <code>git</code> on the command line.</p>
+
+<p>In <strong>/home/gempak</strong>, to clone into the directory <strong>/home/gempak/GEMPAK7</strong>:</p>
+
+<pre><code>    git clone git://github.com/Unidata/gempak.git GEMPAK7
+</code></pre>
+
+<p>This will copy the GEMPAK source to the present working directory.   It also has the advantage of easily setting up <code>git pull</code> to automatically update your local GEMPAK7 repository with the remote Unidata repository.</p>
+
+<p>If downloaded from GitHub, ensure that the source is located in a directory under the user's home directory, such as <strong>/home/gempak/GEMPAK7/</strong></p>
+
+<h3>
+<a name="source-code-from-unidata" class="anchor" href="#source-code-from-unidata"><span class="octicon octicon-link"></span></a>Source code from Unidata</h3>
+
+<p>The current release of GEMPAK is provided as a gzip/tarball archive and can found on the <a href="http://www.unidata.ucar.edu/downloads/gempak/">Unidata GEMPAK download page</a>. </p>
+
+<p>Unpacking the archive in the gempak user home directory (assuming <strong>/home/gempak</strong>):</p>
+
+<pre><code>tar -xvzf gempak-7.tar.gz
+</code></pre>
+
+<p>will create the directory <strong>/home/gempak/GEMPAK7/</strong> which contains all of the libraries, program source and configuration files, most notably the two Gemenviron and Gemenviron.profile.</p>
+
+<h3>
+<a name="binary-releases" class="anchor" href="#binary-releases"><span class="octicon octicon-link"></span></a>Binary Releases</h3>
+
+<table>
+<thead><tr>
+<th align="right">System</th>
+<th align="left">compilers</th>
+<th align="left">flavor</th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="right">linux</td>
+<td align="left">gcc-gfortran-4.1.2</td>
+<td align="left">CentOS 5</td>
+</tr>
+<tr>
+<td align="right">linux64</td>
+<td align="left">gcc-gfortran-4.4.4</td>
+<td align="left">Fedora 12</td>
+</tr>
+<tr>
+<td align="right">x86</td>
+<td align="left">Sun Fortran 95 8.6 and Sun C 5.12</td>
+<td align="left">SunOs 5.11</td>
+</tr>
+<tr>
+<td align="right">Darwin</td>
+<td align="left">clang/LLVM 5 and gfortran/gcc 4.7.2</td>
+<td align="left">OS X 10.9 Mavericks</td>
+</tr>
+</tbody>
+</table><p>The OS X 10.9 binary required <strong>MacPorts</strong> and package <code>openmotif</code> be installed:</p>
+
+<ol>
+<li>Download and install MacPorts</li>
+<li>run <code>sudo port install openmotif</code> to install Open Motif and its dependencies.</li>
+<li>run <code>nmap2</code> to make sure Motif libraries are installed.</li>
+</ol><h2>
+<a name="create-the-nawips-symbolic-link" class="anchor" href="#create-the-nawips-symbolic-link"><span class="octicon octicon-link"></span></a>Create the NAWIPS symbolic link</h2>
+
+<p>After installing or building from source, but before running any GEMAPK programs, you should create a symbolic link NAWIPS in your home directory to maintain a single command in <strong>.cshrc</strong> or <strong>.profile</strong> that sources the current GEMPAK installation:</p>
+
+<pre><code>ln -s GEMPAK7/ NAWIPS
+</code></pre>
+
+<p>Your <strong>gempak</strong> home directory should then contain the following:</p>
+
+<pre><code>/home/gempak/GEMPAK7
+/home/gempak/NAWIPS -&gt; GEMPAK7
+</code></pre>
+
+<p>If you unpacked and plan to install GEMPAK in an uncommon directory (such as <strong>/opt/gempak/</strong>), you'll need to edit the NAWIPS definition at the top of the appropriate Gemenviron file.</p>
+
+<h2>
+<a name="gemenviron--gemenvironprofile" class="anchor" href="#gemenviron--gemenvironprofile"><span class="octicon octicon-link"></span></a>Gemenviron / Gemenviron.profile</h2>
+
+<p>To build GEMPAK on your system, the environmental variable <strong>$NAWIPS</strong> must be defined at the top of <strong>Gemenviron</strong> [ for csh/tcsh ] or <strong>Gemenviron.profile</strong> [ for bash/ksh ]. These files contain definitions for the locations of various components used by GEMPAK. It is the responsibility of the GEMPAK administrator to confirm that <strong>$NAWIPS</strong> is defined correctly with the full path of the <code>GEMPAK7</code> directory. Other variables which point to the location of data directories, tables and can be tailored at your lesiure, but it's recommended that only <strong>$NAWIPS</strong> be modified as all other variables related to GEMPAK are dependant on <strong>$NAWIPS</strong>.</p>
+
+<p>If you unpacked GEMPAK in <strong>/home/gempak</strong> and plan on compiling with gfortran, you can skip this step.</p>
+
+<pre><code>setenv NAWIPS /home/gempak/GEMPAK7
+</code></pre>
+
+<h2>
+<a name="sourcing-environmental-variables" class="anchor" href="#sourcing-environmental-variables"><span class="octicon octicon-link"></span></a>Sourcing Environmental Variables</h2>
+
+<h3>
+<a name="cshtcsh" class="anchor" href="#cshtcsh"><span class="octicon octicon-link"></span></a>csh/tcsh</h3>
+
+<p>source the full path of Gemenviron in your .cshrc</p>
+
+<pre><code>source /home/gempak/NAWIPS/Gemenviron
+</code></pre>
+
+<h3>
+<a name="bash" class="anchor" href="#bash"><span class="octicon octicon-link"></span></a>bash</h3>
+
+<p>add the following to .profile</p>
+
+<pre><code>. /home/gempak/NAWIPS/Gemenviron.profile
+</code></pre>
+
+<p>Important environmental variable to be familiar with are:</p>
+
+<pre><code>$NAWIPS as defined above
+$GEMPAK points to $NAWIPS/gempak
+$GEMTBL points to $GEMPAK/tables
+$OS_BIN points to $GEMPAK/os/$NA_OS/bin
+$OS_LIB points to $GEMPAK/os/$NA_OS/lib
+$GEMMAPS points to $GEMPAK/maps
+$GEMDATA points to /data/ldm/gempak
+$NA_OS is determined by Gemenviron (linux, linux64, x86, SunOS, Darwin, etc. )
+</code></pre>
+
+<p>The last definition, <strong>$GEMDATA</strong>, points to the <strong>/data/ldm/gempak</strong> but can be changed depending on how you <a href="http://www.unidata.ucar.edu/software/gempak/doc/configuration.html">install and configure the LDM</a>.</p>
+
+<h2>
+<a name="required-libraries" class="anchor" href="#required-libraries"><span class="octicon octicon-link"></span></a>Required Libraries</h2>
+
+<p>If your system uses standard locations for its compilers, X11/Motif libraries and make utilities, you do not needto change any settings. It's assumed both an ansi compatible C compiler and a Fortran 77 compatible compiler are available.</p>
+
+<p>To build locally from source, you must have the developer environments installed for X11, Open Motif and libXp.</p>
+
+<h3>
+<a name="x11" class="anchor" href="#x11"><span class="octicon octicon-link"></span></a>X11</h3>
+
+<ul>
+<li>libX11</li>
+<li>libX11-devel</li>
+</ul><h3>
+<a name="open-motif" class="anchor" href="#open-motif"><span class="octicon octicon-link"></span></a>Open Motif</h3>
+
+<ul>
+<li>openmotif</li>
+<li>openmotif-devel</li>
+</ul><p>The Open Motif 2.3.4 source tarball can be downloaded from the <a href="http://sourceforge.net/projects/motif/files/">motif sourceforge page</a>.</p>
+
+<p>Binary packages are also available for <a href="http://sourceforge.net/projects/motif/files/">Red Hat, Fedora and Ubuntu</a> operating systems.</p>
+
+<p>Some operating systems provide the MOTIF libraries, but some only install them as an option. </p>
+
+<h3>
+<a name="libxp" class="anchor" href="#libxp"><span class="octicon octicon-link"></span></a>libXp</h3>
+
+<ul>
+<li>libXp</li>
+<li>libXp-devel</li>
+</ul><h3>
+<a name="full-list-of-required-libraries" class="anchor" href="#full-list-of-required-libraries"><span class="octicon octicon-link"></span></a>Full List of Required Libraries</h3>
+
+<p>Some systems, most notably recent releases of Fedora Core (fc16 and fc17) require a number of packages be installed in order to successfully build OpenMotif and GEMPAK. Below is a list of all required packages, followed by a single yum install command to take care of them in one instance: </p>
+
+<ul>
+<li>gcc</li>
+<li>gcc-c++</li>
+<li>gcc-gfortran</li>
+<li>libX11</li>
+<li>libX11-devel</li>
+<li>libXt-devel</li>
+<li>libXext-devel</li>
+<li>libXp</li>
+<li>libXp-devel</li>
+<li>libXft-devel</li>
+<li>libXtst-devel</li>
+<li>xorg-x11-xbitmaps</li>
+<li>flex</li>
+<li>byacc</li>
+<li>*fonts-ISO8859-*</li>
+</ul><p>To install all at once: </p>
+
+<pre><code>yum install gcc gcc-c++ gcc-gfortran libX11 libX11-devel libXt-devel \
+libXext-devel libXp libXp-devel libXft-devel libXtst-devel \
+xorg-x11-xbitmaps flex byacc *fonts-ISO8859-* -y
+</code></pre>
+
+<h2>
+<a name="build-options" class="anchor" href="#build-options"><span class="octicon octicon-link"></span></a>Build Options</h2>
+
+<h3>
+<a name="gemenviron--gemenvironprofile-1" class="anchor" href="#gemenviron--gemenvironprofile-1"><span class="octicon octicon-link"></span></a>Gemenviron / Gemenviron.profile</h3>
+
+<p>To change the GCC compiler, edit the <strong>USE_GFORTRAN</strong>, <strong>USE_PGI</strong> and <strong>USE_G77</strong> definitions in <strong>Gemenviron</strong> or <strong>Gemenviron.profile</strong> (<strong>gfortran</strong> is the default):</p>
+
+<pre><code>set USE_GFORTRAN=1
+</code></pre>
+
+<h2>
+<a name="makeinccommon" class="anchor" href="#makeinccommon"><span class="octicon octicon-link"></span></a>Makeinc.common</h2>
+
+<p>For most systems, GEMPAK will be built using either g77 or gfortran[4.1+]. Files located in <strong>$NAWIPS/config/</strong> contain information specific to the individual platform you will be installing on (sol, x86, hpux, linux, osf, irix, aix, freebsd, darwin).</p>
+
+<h3>
+<a name="sunos-specific-options" class="anchor" href="#sunos-specific-options"><span class="octicon octicon-link"></span></a>SunOS-Specific Options</h3>
+
+<p>Bundled cc is not ansi compatible, so SunOS users should make sure SUNWspro/bin/cc is found before <strong>/usr/ucb/cc</strong> in your path. Also, you will need to ensure that /usr/ccs/bin is in your path.</p>
+
+<h3>
+<a name="ubuntu-linux" class="anchor" href="#ubuntu-linux"><span class="octicon octicon-link"></span></a>Ubuntu Linux</h3>
+
+<p>Ubuntu builds require the compiler flag <code>-fno-stack-protector</code> be added to <strong>COPT</strong> (C compiler options) and FOPT (fortran compiler options). Ubuntu-specific Makeinc files are provided in <strong>$NAWIPS/config/</strong> that include this compiler flag:</p>
+
+<pre><code>$NAWIPS/config/Makeinc.linux_gfortran_ubuntu
+$NAWIPS/config/Makeinc.linux64_gfortran_ubuntu
+</code></pre>
+
+<h3>
+<a name="mac-os-x" class="anchor" href="#mac-os-x"><span class="octicon octicon-link"></span></a>Mac OS X</h3>
+
+<p><a href="http://www.unidata.ucar.edu/software/gempak/doc/install_osx.html">Mac OS X GEMPAK Installation Guide</a> by Kevin Tyle, University of Albany.</p>
+
+<p>This document will guide users through building GEMPAK on Intel Mac OS X 10.6 (Snow Leopard) with GCC 4.4 compilers. The same procedure should also work for 10.5 (Leopard), but earlier versions/CPU's of OS X remain untested.</p>
+
+<h2>
+<a name="compiling-gempak-source" class="anchor" href="#compiling-gempak-source"><span class="octicon octicon-link"></span></a>Compiling GEMPAK Source</h2>
+
+<h3>
+<a name="make" class="anchor" href="#make"><span class="octicon octicon-link"></span></a>Make</h3>
+
+<p>GEMPAK and various bundled libearies are compiled from source by the Make tool, using the Fortran and C compilers specified in the above configuration files. From $NAWIPS issue the command</p>
+
+<pre><code>make all &gt;&amp; make.out
+</code></pre>
+
+<p>The redirection command <code>&gt;&amp;</code> sends <strong>STDOUT</strong> to the log file make.out. The Make process takes several minutes to complete, first compiling libraries such as netCDF, ncepBUFR, HDF5 and zlib, followed by the GEMPAK source. In another terminal you can follow the STDOUT log with the command</p>
+
+<pre><code>tail -f make.out
+</code></pre>
+
+<p>or attach an ampersand to send make to the background and tail the log instantly</p>
+
+<pre><code>make all &gt;&amp; make.out &amp; tail -f make.out
+</code></pre>
+
+<p>This process allows you to examine the build as it runs but preserves the output in the event something goes horribly wrong. If seeking help from Unidata, attach some or all of this make.out log. One should note that with the Makefile installation, only fatal errors (errors that cause the build to end prematurely) are significant, and most "warnings" can be ignored.</p>
+
+<h2>
+<a name="install--clean" class="anchor" href="#install--clean"><span class="octicon octicon-link"></span></a>Install &amp; Clean</h2>
+
+<pre><code>make install; make clean
+</code></pre>
+
+<p>Executables are installed to <strong>$OS_BIN</strong> and libraries should already be located in <strong>$OS_LIB</strong>.</p>
+
+<p>The command make clean will remove compiled objects and binary executables from the source tree.</p>
+
+<p>If your distribution is modified by patches or other edits and updates and you have to rebuild, the compilation time will be reduced as the libraries which took the majority of the time to build already exist.</p>
+
+<h2>
+<a name="cleaning-a-build" class="anchor" href="#cleaning-a-build"><span class="octicon octicon-link"></span></a>Cleaning a Build</h2>
+
+<p>In the event that core definitions change and libraries must be built from scratch, a the entire install for your system will need to be cleaned:</p>
+
+<pre><code>make distclean
+</code></pre>
+
+<p>This full clean will delete all objects and executables as well as all libraries built for the current system.</p>
+
+<h3>
+<a name="everything" class="anchor" href="#everything"><span class="octicon octicon-link"></span></a>Everything</h3>
+
+<pre><code>make everything
+</code></pre>
+
+<p>This command will combine the steps of make all, make install and make clean to build and install the package, but will not log <strong>STDOUT</strong> to file. The command also runs the <code>make programs_nc</code> and <code>make programs_gf</code> targets mentioned below.</p>
+
+<h3>
+<a name="gf--nc-programs" class="anchor" href="#gf--nc-programs"><span class="octicon octicon-link"></span></a>GF &amp; NC Programs</h3>
+
+<pre><code>make programs_nc
+</code></pre>
+
+<p>and</p>
+
+<pre><code>make programs_gf
+</code></pre>
+
+<p>build versions of programs which link directly to device drivers (eliminating the gplt/message queue interface). These are primarily used for projects where multiple scripts are run at scheduled times, as in the cron, and don't require user interaction.</p>
+
+<p>Everything Okay? Continue on to <a href="http://www.unidata.ucar.edu/software/gempak/doc/configuration.html">LDM &amp; GEMPAK Setup</a></p>
+
+<h2>
+<a name="troubleshooting" class="anchor" href="#troubleshooting"><span class="octicon octicon-link"></span></a>Troubleshooting</h2>
+
+<h3>
+<a name="missing-motif-libraries" class="anchor" href="#missing-motif-libraries"><span class="octicon octicon-link"></span></a>Missing MOTIF Libraries</h3>
+
+<p>Any error messages involving missing Xm files (such as Xm/XmAll.h):</p>
+
+<pre>
+&gt; ...include/geminc.h:59:22: Xm/XmAll.h: No such file or directory
+&gt; In file included from /home/gempak/GEMPAK7/include/proto.h:28,
+&gt;    from /home/gempak/GEMPAK7/include/gemprm.h:647,
+</pre>
+
+<p>Indicate that openmotif and openmotif-devel were not found on your system. Either the motif libraries are not installed on your system, or the correct location has not been specified to the compiler. If the latter is the case, you will need to edit <strong>$NAWIPS/config/Makeinc.linux_gfortran</strong> (assuming a linux system using gfortran), where $NA_OS is your system architecture as determined in the Gemenviron configuration file.</p>
+
+<h3>
+<a name="incorrectly-sourced-gemenvirongemenvironprofile" class="anchor" href="#incorrectly-sourced-gemenvirongemenvironprofile"><span class="octicon octicon-link"></span></a>Incorrectly sourced Gemenviron/Gemenviron.profile</h3>
+
+<p>The runtime error</p>
+
+<pre>
+&gt; [GEMPLT -101]  NOPROC - Nonexistent executable
+</pre>
+
+<p>indicates that your environmental variables are not sourced correctly (type command <code>env</code> to see all envars and make sure the Gemenviron configuration file is edited and sourced as described above).</p>
+
+<h3>
+<a name="error-in-message-queue" class="anchor" href="#error-in-message-queue"><span class="octicon octicon-link"></span></a>Error in message queue</h3>
+
+<pre>
+&gt; Error in message send = 22
+&gt; itype, ichan, nwords,0,65536,3
+</pre>
+
+<p>This runtime error means the message queue is full, which typically occurs when executing GEMPAK programs in batch mode from scripts. To fix, exit GEMPAK and run</p>
+
+<pre><code>cleanup -c
+</code></pre>
+
+<p>This command will remove existing message queues (the <strong>ipcrm</strong> command is run to remove message queues found with <strong>ipcs</strong>). It will also look for running <strong>gplt</strong> processes and kill them.</p>
+
+<h2>
+<a name="legal-disclaimer" class="anchor" href="#legal-disclaimer"><span class="octicon octicon-link"></span></a>Legal Disclaimer</h2>
+
+<p>GEMPAK was developed by the National Aeronautics and Space
+Administration and the National Oceanic and Atmospheric Administration.
+GEMPAK is provided by UCAR on an "AS IS" basis and any warranties,
+either express or implied, including but not limited to implied
+warranties of noninfringement, originality, merchantability and fitness
+for a particular purpose, are disclaimed. UCAR will not be obligated to
+provide the user with any support, consulting, training or assistance of
+any kind with regard to the use, operation and performance of GEMPAK nor
+to provide the user with any updates, revisions, new versions, error
+corrections or "bug" fixes. In no event will UCAR be liable for any damages,
+whatsoever, whether direct, indirect, consequential or special, which may
+result from an action in contract, negligence or other claim that arises
+out of or in connection with the access, use or performance of GEMPAK
+including infringement actions.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Gempak maintained by <a href="https://github.com/Unidata">Unidata</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
