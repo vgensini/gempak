@@ -238,7 +238,7 @@ PATH=${PATH}:${OS_BIN}:${NAWIPS}/bin ; export PATH
 # Data directories, either real time or the Hurricane Bob sample data set:
 #
 #  GEMDATA=$GEMPAK/data ; export GEMDATA
-   GEMDATA=/data/ldm/gempak ; export GEMDATA
+   GEMDATA=/home/ldm/data/gempak ; export GEMDATA
    OBS=$GEMDATA ; export OBS
 #
 # Location of meta files (generated with NC decide driver)
@@ -260,7 +260,7 @@ PATH=${PATH}:${OS_BIN}:${NAWIPS}/bin ; export PATH
 # Below follow  variables for data locations (site specific)
 # Not required for NAWIPS, but may be used in scripts etc.
 #
-   LDMDATA=/data/ldm ; export LDMDATA
+   LDMDATA=/home/ldm/data ; export LDMDATA
    GOES8=$SAT/GOES-8 ; export GOES8
    GOES9=$SAT/GOES-9 ; export GOES9
    MODEL=$GEMDATA/model ; export MODEL

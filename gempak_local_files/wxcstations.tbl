@@ -1,0 +1,19 @@
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!
+! WX Challenge Cities Table
+!
+! Go get the list of cities here: http://www.wxchallenge.com/challenge/schedule.php
+!
+! Copy the lines for each station from sfstns.tbl in this directory.
+!
+!STID    STNM   NAME                             ST CO   LAT    LON  ELV PRI
+!(8)     (6)    (32)                            (2)(2)   (5)    (6)   (5)(2)
+!
+KEYW     722010 KEY WEST                         FL US  2455  -8175     5  0
+KMDT     999999 MIDDLETOWN                       PA US  4020  -7677    95  0
+KGRI     725520 GRAND ISLAND                     NE US  4097  -9832   561  0
+KRNO     724880 RENO                             NV US  3950 -11977  1342  0
+KSAW     999999 GWINN/SAWYER                     MI US  4635  -8740   372  0
+KSEA     727930 SEATTLE/METRO                    WA US  4745 -12232   136  0
+!LAR      999999 LARAMIE                          WY US  4132 -10567  2216  0
+!KLIT     999999 LITTLE ROCK                      AR US  3472  -9223    79  0
