@@ -204,7 +204,7 @@ setenv PATH ${PATH}:${OS_BIN}:${NAWIPS}/bin
 #
 # Live data 
 #
-   setenv GEMDATA       /data/ldm/gempak
+   setenv GEMDATA       /home/ldm/data/gempak
    setenv OBS           $GEMDATA
 #
 # Location of meta files (generated with NC decide driver)
@@ -227,7 +227,7 @@ setenv PATH ${PATH}:${OS_BIN}:${NAWIPS}/bin
 # Below follow variables for data locations (site specific)
 # These may be used in scripts etc., as well as $GEMTBL/config/datatype.tbl.
 #
-   setenv LDMDATA	/data/ldm
+   setenv LDMDATA	/home/ldm/data
    setenv GOES8		$SAT/GOES-8
    setenv GOES9		$SAT/GOES-9
    setenv SUPER_NATIONAL_IR	$SAT/SUPER-NATIONAL/8km/IR 
