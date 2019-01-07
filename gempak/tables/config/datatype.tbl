@@ -725,7 +725,7 @@ FRONTS       $TEXT_DATA/hpc/fronts     YYYYMMDDHH.front                         
 WRF          $MODEL/wrf                YYYYMMDDHHfFFF_*                                 CAT_GRD  SCAT_FCT   -1     -1     -1      OFF/0/0
 !
 ! Radar level 2 & 3 aliases
-NEXRII       $RAD/level2/%SITE%        %SITE%_YYYYMMDD_HHNN                             CAT_NIL  SCAT_NIL   10   2880      6      OFF/0/0
+NEXRII       $RAD/level2/%SITE%        Level2_%SITE%_YYYYMMDD_HHNN.ar2v                 CAT_NIL  SCAT_NIL   10   2880      6      OFF/0/0
 NEXRIII      $RAD/NIDS/%SITE%/%PROD%   %PROD%_YYYYMMDD_HHNN                             CAT_NIL  SCAT_NIL   10   2880     -1      OFF/0/0
 NEXRCOMP     $NEXCOMP/%SITE%/%PROD%    %PROD%_YYYYMMDD_HHNN                             CAT_NIL  SCAT_NIL   10   2880     -1      OFF/0/0
 ! old 
