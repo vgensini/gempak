@@ -220,7 +220,7 @@ setenv PATH ${PATH}:${OS_BIN}:${NAWIPS}/bin
 #  Location of SAT directory tree "Required!!"...must exist
 #
    setenv SAT  		$GEMDATA/images/sat
-   setenv RAD		$GEMDATA/nexrad
+   setenv RAD		/home/ldm/data/radar
    setenv NEXCOMP 	$SAT/NEXRCOMP
 #
 #

@@ -254,7 +254,7 @@ PATH=${PATH}:${OS_BIN}:${NAWIPS}/bin ; export PATH
 #  Location of NSAT directory tree "Required!!"...must exist
 #
    SAT=$GEMDATA/images/sat ; export SAT
-   RAD=$GEMDATA/nexrad ; export RAD
+   RAD=/home/data/ldm/radar ; export RAD
 #
 #
 # Below follow  variables for data locations (site specific)
