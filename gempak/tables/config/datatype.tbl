@@ -473,7 +473,7 @@ NWW3_AK      $MODEL/nww3               nww3_YYYYMMDDHH_alaska                   
 NWW3_CAK     $MODEL/nww3               nww3_YYYYMMDDHH_coastal_alaska                   CAT_GRD  SCAT_FCT   -1     -1     -1      OFF/0/0      4
 NWW3_CWEST   $MODEL/nww3               nww3_YYYYMMDDHH_coastal_west_coast               CAT_GRD  SCAT_FCT   -1     -1     -1      OFF/0/0      4
 NWW3_CEAST   $MODEL/nww3               nww3_YYYYMMDDHH_coastal_east_coast               CAT_GRD  SCAT_FCT   -1     -1     -1      OFF/0/0      4
-RAP          $MODEL/rap                YYYYMMDDHH_rap13km.gem                           CAT_GRD  SCAT_FCT   -1     -1     -1      OFF/0/0      4
+RAP          $MODEL/rap                YYYYMMDDHH_rap.gem                               CAT_GRD  SCAT_FCT   -1     -1     -1      OFF/0/0      4
 RAP40        $MODEL/rap                YYYYMMDDHH_rap40km.gem                           CAT_GRD  SCAT_FCT   -1     -1     -1      OFF/0/0      4
 RAP13        $MODEL/rap                YYYYMMDDHH_rap13km.gem                           CAT_GRD  SCAT_FCT   -1     -1     -1      OFF/0/0      4
 RAP20        $MODEL/rap                YYYYMMDDHH_rap20km.gem                           CAT_GRD  SCAT_FCT   -1     -1     -1      OFF/0/0      4
