@@ -1,10 +1,5 @@
 #!/bin/sh -xe
-
 ls -l /home
-
-# Required packages
-apt-get update -y >& /dev/null
-apt-get install build-essential gfortran git gcc libtool g++ libx11-dev libxt-dev libxext-dev libxft-dev libxtst-dev flex byacc python python-dev libmotif-dev libxml2-dev libxslt-dev libz-dev autoconf -y
 
 # Package GEMPAK source from HEAD
 pushd /gempak
@@ -22,46 +17,48 @@ pushd /home/gempak
 mv gempak-${package_version} GEMPAK7
 cd GEMPAK7
 . Gemenviron.profile
-#. source_python.sh
 export PYINC="-I/usr/include/python2.7"
 export PYLIB="-lpython2.7"
 export WITHPY="-DWITHPYTHON"
-export PYDEP="-lpthread -ldl -lutil"
+export PYDEP="-lpthread -lutil -ldl"
 export LDFLAGS="-L/usr/lib -L$OS_LIB -s"
 
 pushd config
-
 rm -rf Makeinc.linux64_gfortran
 ln -s Makeinc.linux64_gfortran_ubuntu Makeinc.linux64_gfortran
+ls -latr
 popd
 
-gemlog="/gempak/build/dist/make.gempak.log"
-make extlibs 2>&1 | tee -a /gempak/build/dist/make.extlibs.log
-#make extlibs 2>&1 | tee -a make.extlibs.log | grep --line-buffered "making all in"
-#make gempak 2>&1 | tee -a $gemlog | grep --line-buffered "making all in"
-make gempak 2>&1 | tee -a $gemlog
-make install >& /dev/null
-make programs_gf >& /dev/null
-make programs_nc >& /dev/null
-make clean >& /dev/null
+# Build GEMPAK
+make everything
 
-grep -i error $gemlog
+#gemlog="/gempak/build/dist/make.gempak.log"
+#cd extlibs/HDF5
+#make all
+#ls -latr $OS_LIB
+#ls -la $OS_INC
+#cd ../netCDF
+#make all
 
-rm -rf extlibs config .gitignore .travis.yml build
+#make extlibs 2>&1 | tee -a /gempak/build/dist/make.extlibs.log
+#make gempak 2>&1 | tee -a $gemlog
+#make install >& /dev/null
+#make programs_gf >& /dev/null
+#make programs_nc >& /dev/null
+#make clean >& /dev/null
+#grep -i error $gemlog
 
+# Cleanup
+rm -rf .gitignore .travis.yml
 
-ls -la $OS_BIN|wc -l
-
+# Build the deb package
 mkdir -p /tmp/gempak-${package_version}/home
 cp -r /home/gempak /tmp/gempak-${package_version}/home/
-
 pushd /tmp
-
-# Build the RPM
 dpkg-deb --nocheck --debug --verbose --build gempak-${package_version}
 cp gempak-${package_version}.deb /gempak/build/dist/
 
-# Install with dependencies
+# Confirm install with dependencies
 apt-get update -y
 dpkg -i gempak-${package_version}.deb
 apt-get -f install
