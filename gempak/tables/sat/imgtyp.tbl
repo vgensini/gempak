@@ -112,6 +112,7 @@ GOES16 RGB           SIMPLEWV      0     94    390   2**11     1 abisimplewv.tbl
 GOES16 RGB           SO2           0     94    390   2**12     1 abiso2.tbl
 GOES16 RGB           GEOCOLOR      0     95    390   2**13     1 geocolor_g16.tbl
 !
+GOES17 CH08 6.19um   WV            0    255    188    128      1 wvcimss.tbl
 AIRS                 CO            3    253    240      2      1 rainbow.tbl
 AIRS                 O3            3    253    240      1      1 rainbow.tbl
 ALASKA  1 KM  BASE   REFLECT       0     15      6    139      1 osf_ref16.tbl
