@@ -28,7 +28,7 @@ C
 	IF ( iyy .gt. 999 ) THEN
 	  ELSE IF ( iyy .lt. 0 ) THEN
 	    iret  = -7
-	  ELSE IF ( iyy .le. 20 ) THEN
+	  ELSE IF ( iyy .le. 40 ) THEN
 	    iyyyy = 2000 + iyy
 	  ELSE IF ( iyy .le. 99 ) THEN
 	    iyyyy = 1900 + iyy

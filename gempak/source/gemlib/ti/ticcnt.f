@@ -37,7 +37,7 @@ C
 	    CALL ST_INTG ( dattim ( 1:2 ), iyear, iret )
 	    IF ( iret .ne. 0 .or. iyear .lt. 0 ) THEN
 	        iret = -7
-	      ELSE IF ( iyear .le. 20 ) THEN
+	      ELSE IF ( iyear .le. 40 ) THEN
 	        cent = '20'
 	      ELSE
 	        cent = '19'
