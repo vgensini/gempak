@@ -83,7 +83,7 @@ C
 	IF  ( ipyy .ne. 0 )  THEN
 	    tstr = dattim (1:2)
 	    CALL ST_NUMB ( tstr, iyear, ier )
-	    IF  ( iyear .le. 20 )  THEN
+	    IF  ( iyear .le. 40 )  THEN
 		filnam (ipyy:ipyy+1) = '20'
 	      ELSE
 		filnam (ipyy:ipyy+1) = '19'

@@ -68,7 +68,7 @@ void cti_yyyy ( int ntime, char **timin, char **outime, int *iret )
 	    ii = 0;
 	    found = FALSE; 
             while ( ! found ) {
-	        if ( strncmp(timin[ii], "20", 2) > 0 ) {
+	        if ( strncmp(timin[ii], "40", 2) > 0 ) {
 		    found = TRUE;
 		    if ( ii > ( ntime / 2 ) ) {
 		        down  = TRUE;

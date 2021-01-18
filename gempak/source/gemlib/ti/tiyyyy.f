@@ -54,7 +54,7 @@ C
 		i = 1
 		found = .false.
 	        DO WHILE ( .not. found )
-		    IF ( timin ( i ) ( 1:2 ) .gt. '20' ) THEN
+		    IF ( timin ( i ) ( 1:2 ) .gt. '40' ) THEN
 			found = .true.
 			IF ( i .gt. ( ntime / 2 ) ) THEN
 			    down  = .true.

@@ -123,7 +123,7 @@ C
 		IF ( ipos .gt. 0 ) THEN
 		    CALL ST_NUMB ( label(ipos-2:ipos-1), iday, ier )
 		    CALL ST_NUMB ( label(ipos+5:ipos+6), iyear, ier)
-		    IF ( iyear .le. 20 ) THEN
+		    IF ( iyear .le. 40 ) THEN
 			iyear = 2000 + iyear
 		    ELSE
 		        iyear = 1900 + iyear
