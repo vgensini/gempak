@@ -1,0 +1,36 @@
+# NetCDF C Configuration Summary
+==============================
+
+# General
+-------
+NetCDF Version:		4.3.3.1
+Configured On:		Tue Jan 19 01:07:39 UTC 2021
+Host System:		x86_64-unknown-linux-gnu
+Build Directory: 	/home/gempak/GEMPAK7/extlibs/netCDF/netcdf
+Install Prefix:         /home/gempak/GEMPAK7/os/linux64
+
+# Compiling Options
+-----------------
+C Compiler:		/usr/bin/gcc
+CFLAGS:			-O -I../libsrc
+CPPFLAGS:		-DNDEBUG -Df2cFortran -I/home/gempak/GEMPAK7/os/linux64/include
+LDFLAGS:		-L/home/gempak/GEMPAK7/os/linux64/lib
+AM_CFLAGS:		
+AM_CPPFLAGS:		
+AM_LDFLAGS:		
+Shared Library:		yes
+Static Library:		yes
+Extra libraries:	-lhdf5_hl -lhdf5 -ldl -lm -lz 
+
+# Features
+--------
+NetCDF-2 API:		yes
+NetCDF-4 API:		yes
+HDF4 Support:		no
+HDF5 Support:		yes
+PNetCDF Support:	no
+Parallel Support:	no
+DAP Support:		no
+Diskless Support:	yes
+MMap Support:		no
+JNA Support:		no

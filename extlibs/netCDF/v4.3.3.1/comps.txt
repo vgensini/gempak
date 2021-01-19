@@ -1,0 +1,1 @@
+CPPFLAGS=-DNDEBUG -Df2cFortran -I/home/gempak/GEMPAK7/os/linux64/include CC=gcc CFLAGS=-O -I../libsrc LDFLAGS=-L/home/gempak/GEMPAK7/os/linux64/lib LIBS=
