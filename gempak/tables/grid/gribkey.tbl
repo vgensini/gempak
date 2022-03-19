@@ -20,7 +20,7 @@
 007   x   084,085   104    data/gempak/model/nam/YYYYMMDDHH_nam@@@.gem   30000
 007   x   084,085   212    data/gempak/model/nam/YYYYMMDDHH_nam@@@.gem   30000
 007   x   084,085   227    data/gempak/model/nam4km/YYYYMMDDHHfFFF_nam4km.gem   1000
-007   x   084,085   218    data/gempak/model/nam12km/YYYYMMDDHHfFFF_nam@@@.gem  1000
+007   x   084,085   218    data/gempak/model/nam12km/YYYYMMDDHH_nam@@@.gem  40000
 007   x   084,085   207    data/gempak/model/nam-ak/YYYYMMDDHH_nam@@@.gem   5000
 007   x   084,085   216    data/gempak/model/nam-ak/YYYYMMDDHH_nam@@@.gem   28000
 007   x   084,085   217    data/gempak/model/nam-ak/YYYYMMDDHH_nam@@@.gem   5000
